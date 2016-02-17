@@ -1,20 +1,139 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MP1 Starter</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Walt Disney World Resort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
-  <h1>Hello World!</h1>
-  <div class="test"> My name is Anthony.</div>
-  <div class="cat">
-    <img src="./media/cat.jpg" alt="Cat">
-  </div>
+<div id="background"></div>
+<div id="container">
+    <div id="nav-bar">
+        <img src="media/logo.png" alt="Banner">
+        <ul>
+            <li><a href="#carousel">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#parks">The Parks</a></li>
+            <li><a href="#video">Video</a></li>
+        </ul>
+    </div>
 
-  <script src="lib/jquery-2.1.3.min/index.js"></script>
-  <script src="js/script.js"></script>
-  <script src="http://localhost:35729/livereload.js"></script>
+    <div id="carousel">
+        <img id="carousel0" src="media/carousel0.jpg" alt="Carousel image 1">
+        <img id="carousel1" src="media/carousel1.jpg" alt="Carousel image 2">
+        <img id="carousel2" src="media/carousel2.jpg" alt="Carousel image 3">
+        <img id="carousel3" src="media/carousel3.jpg" alt="Carousel image 4">
+        <i class="fa fa-arrow-left fa-3x" onclick="previousCarousel()"></i>
+        <i class="fa fa-arrow-right fa-3x" onclick="nextCarousel()"></i>
+    </div>
+
+    <div id="about">
+        <h1>About</h1>
+
+        <p>The Walt Disney World Resort,<br>known as Disney World, is an entertainment complex in
+            Bay Lake, Florida, near Kissimmee and Orlando,<br>and is the flagship of Disney's worldwide corporate
+            empire.
+        </p>
+        <br>
+        <img src="media/disney-world-logo.png" alt="Disney World logo">
+    </div>
+
+    <div id="parks">
+        <h1>The Parks</h1>
+
+        <div>
+            <div class="parks-item" onclick="openModal('magic-kingdom')">
+                <span class="icon-magic-kingdom"></span>
+                Magic Kingdom
+            </div>
+            <div class="parks-item" onclick="openModal('epcot')">
+                <span class="icon-epcot"></span>
+                Epcot
+            </div>
+            <br>
+
+            <div class="parks-item" onclick="openModal('hollywood-studios')">
+                <span class="icon-hollywood-studios"></span>
+                Disney's Hollywood Studios
+            </div>
+            <div class="parks-item" onclick="openModal('animal-kingdom')">
+                <span class="icon-animal-kingdom"></span>
+                Disney's Animal Kingdom
+            </div>
+        </div>
+    </div>
+
+    <div id="video">
+        <video width="1200" height="675" autoplay loop muted>
+            <source src="media/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="footer">
+        <p>Find us on</p>
+        <a href="https://www.facebook.com/WaltDisneyWorld"><img src="media/social_fb.png" alt="Facebook"
+                                                                title="Facebook"></a>
+        <a href="https://www.instagram.com/waltdisneyworld/"><img src="media/social_ig.png" alt="Instagram"
+                                                                  title="Instagram"></a>
+        <a href="https://twitter.com/WaltDisneyWorld"><img src="media/social_tw.png" alt="Twitter" title="Twitter"></a>
+        <a href="https://www.youtube.com/user/DisneyParks/"><img src="media/social_yt.png" alt="YouTube"
+                                                                 title="YouTube Channel"></a>
+
+        <p class="small">Walt Disney World Resort, Orlando, FL 32830</p>
+
+        <p class="small">&copy 2016 Kin Yan NG. CS498RK MP1.</p>
+    </div>
+</div>
+
+<div id="overlay" onclick="closeModal()">
+    <div id="modal">
+        <i class="fa fa-times fa-2x" onclick="closeModal()"></i>
+
+        <div id="magic-kingdom">
+            <span class="icon icon-magic-kingdom"></span>
+            <br>
+
+            <p><span class="title">Magic Kingdom</span><br>
+                is the first-built of the four theme parks at the Walt Disney World Resort.<br>
+                It opened to the public on October 1, 1971.</p>
+            <img src="media/magic-kingdom.jpg" alt="Magic Kingdom">
+        </div>
+        <div id="epcot">
+            <span class="icon icon-epcot"></span>
+            <br>
+
+            <p><span class="title">Epcot</span><br>
+                is the second of four theme parks built at the Walt Disney World Resort.<br>
+                It opened to the public on October 1, 1982, and spans more than twice the size of Magic Kingdom.</p>
+            <img src="media/epcot.jpg" alt="Epcot">
+        </div>
+        <div id="hollywood-studios">
+            <span class="icon icon-hollywood-studios"></span>
+            <br>
+
+            <p><span class="title">Disney's Hollywood Studios</span><br>
+                is the third of four theme parks built at the Walt Disney World Resort.<br>
+                It opened to the public on May 1, 1989.</p>
+            <img src="media/hollywood-studios.jpg" alt="Epcot">
+        </div>
+        <div id="animal-kingdom">
+            <span class="icon icon-animal-kingdom"></span>
+            <br>
+
+            <p><span class="title">Disney's Animal Kingdom</span><br>
+                is the fourth of four theme parks built at the Walt Disney World Resort.<br>
+                It was dedicated and opened to the public during Earth Day on April 22, 1998.</p>
+            <img src="media/animal-kingdom.jpg" alt="Epcot">
+        </div>
+    </div>
+</div>
+
+<script src="lib/jquery-2.1.3.min/index.js"></script>
+<script src="js/script.js"></script>
+<script src="http://localhost:35729/livereload.js"></script>
 </body>
 </html>

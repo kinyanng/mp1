@@ -1,13 +1,302 @@
-@import url('http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,100,600,700,700italic,600italic,400italic,300italic,100italic');
 @import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 
-
-h1 {
-  font-size: 2.2rem;
-  color: lighten($orange, 25);
+@font-face {
+  font-family: disney;
+  src: url('../media/disney.woff') format('woff');
 }
 
-.test {
-  font-size: 1.2rem;
-  color: $blue;
+body {
+  font-family: $font-primary;
+  background: $background-primary;
+}
+
+h1 {
+  margin-bottom: 20px;
+
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+p {
+  font-size: 18px;
+}
+
+#background {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 50%;
+  margin-right: -600px;
+  width: 1200px;
+  height: 100%;
+
+  background-image: url('../media/parks.jpg');
+  background-size: cover;
+}
+
+#container {
+  width: 1200px;
+  margin: auto;
+
+  #nav-bar {
+    transition-duration: 0.2s;
+    clear: both;
+    position: fixed;
+    z-index: 99;
+    width: 1200px;
+    height: 60px;
+
+    background: $background-primary;
+
+    img {
+      float: left;
+      margin: 10px;
+    }
+
+    ul {
+      float: right;
+
+      li {
+        float: left;
+        text-align: center;
+
+        a {
+          display: block;
+          padding-top: 24px;
+          width: 150px;
+          height: 60px - 24px;
+
+          text-decoration: none;
+          color: white;
+          font-size: 20px;
+          font-weight: 400;
+        }
+
+        a.focus {
+          background: rgba(255, 255, 255, 0.5);
+        }
+
+        a:hover {
+          background: white;
+          color: $background-primary;
+        }
+      }
+    }
+  }
+
+  #nav-bar.small {
+    transition-duration: 0.2s;
+    height: 46px;
+
+    img {
+      margin: 6px;
+      height: 70%;
+    }
+
+    a {
+      padding-top: 16px;
+      width: 130px;
+      height: 46px - 16px;
+
+      font-size: 18px;
+    }
+  }
+
+  #carousel, #video {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 675px;
+
+    background: $background-primary;
+
+    img {
+      display: none;
+      position: absolute;
+    }
+
+    i {
+      position: absolute;
+      top: 320px;
+      padding: 10px;
+
+      background: white;
+      color: $background-primary;
+      opacity: 0.4;
+
+      cursor: pointer;
+    }
+
+    i:hover {
+      opacity: 1;
+    }
+
+    .fa-arrow-left {
+      left: 0;
+    }
+
+    .fa-arrow-right {
+      right: 0;
+    }
+  }
+
+  #about {
+    padding: 50px;
+    text-align: center;
+
+    background: white;
+    color: $background-primary;
+
+    p {
+      line-height: 30px;
+    }
+  }
+
+  #parks {
+    padding: 50px;
+    text-align: center;
+
+    color: $background-primary;
+    font-size: 24px;
+
+    .parks-item {
+      display: inline-block;
+      padding: 30px;
+      width: 320px;
+
+      border-radius: 6px;
+
+      cursor: pointer;
+
+      span {
+        display: block;
+        margin-bottom: 20px;
+
+        font-family: disney;
+        font-size: 120px;
+      }
+    }
+
+    .parks-item:hover {
+      transition-duration: 0.5s;
+      background: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  #footer {
+    padding: 10px;
+
+    text-align: center;
+    background: $background-primary;
+    color: white;
+
+    img {
+      margin: 10px;
+      width: 40px;
+      height: 40px;
+      opacity: 0.4;
+    }
+
+    img:hover {
+      transition-duration: 0.5s;
+      opacity: 1;
+    }
+
+    .small {
+      margin: 5px;
+      font-size: 12px;
+    }
+  }
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  #modal {
+    position: relative;
+    top: 50px;
+    margin: auto;
+    width: 900px;
+    height: 660px;
+
+    background: white;
+
+    i {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+
+      color: $background-primary;
+
+      cursor: pointer;
+    }
+
+    div {
+      padding-top: 50px;
+      height: 100%;
+
+      text-align: center;
+      color: $background-primary;
+
+      span.icon {
+        display: block;
+
+        font-family: disney;
+        font-size: 120px;
+      }
+
+      span.title {
+        font-size: 22px;
+      }
+
+      p {
+        line-height: 30px;
+      }
+
+      img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+// Vector icons
+.icon-magic-kingdom:before {
+  content: "\e041\fe0e";
+}
+
+.icon-epcot:before {
+  content: "\e042\fe0e";
+}
+
+.icon-hollywood-studios:before {
+  content: "\e044\fe0e";
+}
+
+.icon-animal-kingdom:before {
+  content: "\e043\fe0e";
+}
+
+// Animations
+@keyframes modal-open {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 50px;
+    opacity: 1;
+  }
 }
